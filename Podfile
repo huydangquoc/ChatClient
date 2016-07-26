@@ -7,5 +7,6 @@ target 'ChatClient' do
 
   # Pods for ChatClient
   pod “Parse”
-
+  pod 'ParseFacebookUtilsV4'
+  
 end

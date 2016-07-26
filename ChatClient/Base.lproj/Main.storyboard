@@ -78,6 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="377" y="327"/>
         </scene>
         <!--Chat-->
         <scene sceneID="N6y-nB-hSX">
@@ -182,6 +183,11 @@
                                 <action selector="tapDismiss:" destination="NHd-Yg-30v" id="8kk-mq-6ah"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="rei-YE-6dt">
+                            <connections>
+                                <segue destination="2f0-fc-8ax" kind="show" id="zci-0g-ixb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageField" destination="kap-hH-NCG" id="HFS-hJ-Gix"/>
@@ -191,6 +197,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uz-Nn-4MZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1710" y="327"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="sxZ-VS-u0c">
+            <objects>
+                <viewController id="2f0-fc-8ax" customClass="SettingsViewController" customModule="ChatClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gKM-7T-NSB"/>
+                        <viewControllerLayoutGuide type="bottom" id="PEM-6U-EN2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s3L-bM-Zrb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-Vy-Ein">
+                                <rect key="frame" x="242" y="285" width="117" height="30"/>
+                                <state key="normal" title="Link to Facebook"/>
+                                <connections>
+                                    <action selector="tapButton:" destination="2f0-fc-8ax" eventType="touchUpInside" id="mbA-P0-nmD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7bx-Vy-Ein" firstAttribute="centerY" secondItem="s3L-bM-Zrb" secondAttribute="centerY" id="75w-h7-Uok"/>
+                            <constraint firstItem="7bx-Vy-Ein" firstAttribute="centerX" secondItem="s3L-bM-Zrb" secondAttribute="centerX" id="jf9-cf-hhb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="linkButton" destination="7bx-Vy-Ein" id="GdO-YT-XuW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4H-96-GXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2391" y="327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ygr-sd-XbK">
