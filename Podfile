@@ -6,5 +6,6 @@ target 'ChatClient' do
   use_frameworks!
 
   # Pods for ChatClient
+  pod “Parse”
 
 end
