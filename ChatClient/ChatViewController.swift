@@ -26,7 +26,8 @@ class ChatViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ChatViewController.fetchMessages), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(ChatViewController.fetchMessages), userInfo: nil, repeats: true)
+        fetchMessages()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -49,6 +50,7 @@ class ChatViewController: UIViewController {
         
         let messageObj = PFObject(className: "Message")
         messageObj["text"] = message
+        messageObj["user"] = PFUser.currentUser()
         messageObj.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) in
             
@@ -73,6 +75,7 @@ class ChatViewController: UIViewController {
         
         let query = PFQuery(className: "Message")
         query.orderByDescending("createdAt")
+        query.includeKey("user")
         query.findObjectsInBackgroundWithBlock {
             (messages: [PFObject]?, error: NSError?) in
             
@@ -96,6 +99,9 @@ extension ChatViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         let message = messages[indexPath.row]
         cell.messageLabel.text = message["text"] as? String
+        if let username = (message["user"] as? PFUser)?.username {
+            cell.usernameLabel.text = username
+        }
         
         return cell
     }
