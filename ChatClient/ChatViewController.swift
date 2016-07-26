@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import ParseFacebookUtilsV4
+import FBSDKCoreKit
 
 class ChatViewController: UIViewController {
 
@@ -99,8 +101,13 @@ extension ChatViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         let message = messages[indexPath.row]
         cell.messageLabel.text = message["text"] as? String
-        if let username = (message["user"] as? PFUser)?.username {
-            cell.usernameLabel.text = username
+        if let user = message["user"] as? PFUser {
+            cell.usernameLabel.text = user.username
+            // try get facebook avatar
+            if PFFacebookUtils.isLinkedWithUser(user) {
+                
+                // Code work with Facebook API here
+            }
         }
         
         return cell
