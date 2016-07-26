@@ -13,16 +13,6 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func tapLogin(sender: UIButton) {
         
@@ -43,7 +33,7 @@ class LoginViewController: UIViewController {
             
             if user != nil {
                 // Do stuff after successful login.
-                self.showAlert("logged in")
+                self.performSegueWithIdentifier("loginSegue", sender: self)
             } else {
                 // The login failed. Check error to see why.
                 self.showAlert("login failed")
@@ -77,15 +67,8 @@ class LoginViewController: UIViewController {
                 // Show the errorString somewhere and let the user try again.
             } else {
                 // Hooray! Let them use the app now.
-                self.showAlert("Account created successfully")
+                self.performSegueWithIdentifier("loginSegue", sender: self)
             }
         }
-    }
-
-    private func showAlert(message: String) {
-        
-        let alertController = UIAlertController(title: "ChatClient", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
