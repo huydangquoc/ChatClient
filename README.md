@@ -28,10 +28,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src="screenshots/s1.png”/>
-<img src="screenshots/s2.png”/>
-<img src="screenshots/s3.png”/>
-<img src="screenshots/s4.png”/>
+![Screen 1](screenshots/s1.png)
+![Screen 2](screenshots/s2.png)
+![Screen 3](screenshots/s3.png)
+![Screen 4](screenshots/s4.png)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
